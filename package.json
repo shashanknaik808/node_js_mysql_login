@@ -1,0 +1,29 @@
+{
+  "name": "node_js_mysql_login",
+  "version": "1.0.0",
+  "description": "Login Project Using Node JS and MySQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashanknaik808/node_js_mysql_login.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shashanknaik808/node_js_mysql_login/issues"
+  },
+  "homepage": "https://github.com/shashanknaik808/node_js_mysql_login#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
