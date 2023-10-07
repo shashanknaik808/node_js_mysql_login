@@ -55,6 +55,21 @@ module.exports.register = (req, res) => {
 module.exports.login = (req, res) => {
     console.log(req.body);
 
+    const { email, password } = req.body;
 
-    
+    db.query('SELECT * FROM USERS WHERE EMAIL = ?', [email], async (error, rs) => {
+        if (error) return console.log(error);
+        if (rs.length === 0) return res.render('login', { message: "No user found" });
+        rs.forEach(ele => {
+            if (email === ele.EMAIL) {
+                if (password === ele.PASSWORD) {
+                    return res.render('login', { message: "Login Successfull" });
+                } else {
+                    return res.render('login', { message: "Invalid Password" })
+                }
+            }
+        })
+
+    })
+
 };
