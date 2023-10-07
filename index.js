@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mysql = require('mysql');
 const dotenv = require('dotenv');
 
@@ -14,6 +15,12 @@ const db = mysql.createConnection({
     password: process.env.DATABASE_PASSWOR,
     database: process.env.DATABASE
 });
+
+const publicDirectory = path.join(__dirname, './public');
+
+app.use(express.static(publicDirectory));
+
+app.set('view engine', 'hbs');
 
 
 db.connect((err) => {
