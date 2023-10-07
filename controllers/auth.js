@@ -1,4 +1,7 @@
 const mysql = require('mysql');
+const jwt = require('jsonwebtoken');
+const brcrypt = require('bcryptjs');
+
 
 
 const db = mysql.createConnection({
