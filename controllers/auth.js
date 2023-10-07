@@ -10,3 +10,29 @@ const db = mysql.createConnection({
 
 
 
+module.exports.register = (req, res) => {
+    console.log(req.body);
+
+    const { name, email, password, passwordConfirm } = req.body;
+    db.query('SELECT EMAIL FROM USERS WHERE EMAIL = ?', [email], async (error, results) => {
+        if (error) {
+            console.log(error);
+        }
+        if (results.length > 0) {
+            return res.render('register', {
+                message: 'That email is already in use'
+            })
+        } else if (password !== passwordConfirm) {
+            return res.render('register', {
+                message: 'Password do not match'
+
+            })
+        }
+
+
+        // let haashedPassword = await brcrypt.hash(password, 8);
+        // console.log(haashedPassword);
+        
+    });
+
+};
