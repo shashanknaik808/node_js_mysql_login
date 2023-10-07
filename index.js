@@ -33,7 +33,8 @@ db.connect((err) => {
 
 
 app.get('/', (req, res) => {
-    res.send("<h1>Home Page</h1>")
+    // res.send("<h1>Home Page</h1>")
+    res.render("index");
 });
 
 app.listen(5000, () => {
