@@ -32,10 +32,14 @@ db.connect((err) => {
 });
 
 
-app.get('/', (req, res) => {
-    // res.send("<h1>Home Page</h1>")
-    res.render("index");
-});
+// app.get('/', (req, res) => {
+//     // res.send("<h1>Home Page</h1>")
+//     res.render("index");
+// });
+
+app.use('/', require('./routes/pages.js'));
+
+app.use('/auth', require('./routes/auth'));
 
 app.listen(5000, () => {
     console.log("Server started on port 5000");
